@@ -18,7 +18,7 @@ export const BlogItem = props => {
   return (
     <div
       key={post.id}
-      className='h-42 my-6 pb-12 border-b dark:border-gray-800'>
+      className='h-42 my-6 border-b dark:border-gray-800'>
       {/* 文章标题 */}
 
       <div className='flex'>
