@@ -12,8 +12,8 @@ on:
       unconditional-invoking:
         description: 'push url unconditionally'
         type: boolean
-        required: true
-        default: true
+        required: false
+        default: false
 
 # on:
   # schedule:
