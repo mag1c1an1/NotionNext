@@ -35,8 +35,8 @@ export default function NavBar(props) {
           src={siteInfo?.icon}
           // 3. Added a subtle hover effect for better interactivity.
           className='rounded-full hover:scale-110 transform duration-200 hover:rotate-45 origin-center'
-          width={100}
-          height={100}
+          width={50}
+          height={50}
           alt={siteConfig('AUTHOR')}
         />
       </div>
