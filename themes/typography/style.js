@@ -78,6 +78,7 @@ const Style = () => {
       }
 
       .notion {
+        font-size: 100%;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
       }

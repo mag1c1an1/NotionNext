@@ -7,13 +7,10 @@ export const MenuItemDrop = ({ link }) => {
   const [show, changeShow] = useState(false)
   const router = useRouter()
 
-
-
   if (!link || !link.show) {
     return null
   }
   const selected = router.pathname === link.href || router.asPath === link.href
-
 
   return (
     <div className='menu-item'>
@@ -21,12 +18,10 @@ export const MenuItemDrop = ({ link }) => {
         <SmartLink
           href={link?.href}
           target={link?.target}
-          className='dark:hover:text-[var(--primary-color)] dark:hover:bg-white menu-link underline decoration-2 hover:no-underline hover:bg-[#2E405B] hover:text-white text-[var(--primary-color)]  dark:text-gray-200 tracking-widest pb-1 font-bold'>
+          className='dark:hover:text-[var(--primary-color)] dark:hover:bg-white menu-link underline decoration-2 hover:no-underline hover:bg-[#2E405B] hover:text-white text-[var(--primary-color)]  dark:text-gray-200 tracking-widest pt-1 pb-1 font-bold'>
           {link?.name}
         </SmartLink>
-      )
-      }
-
+      )}
 
       {hasSubMenu && (
         <>
@@ -68,11 +63,8 @@ export const MenuItemDrop = ({ link }) => {
               })}
             </ul>
           </div>
-
         </>
       )}
-
     </div>
-
   )
 }

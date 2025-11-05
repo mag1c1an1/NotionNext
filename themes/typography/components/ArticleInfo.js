@@ -17,7 +17,7 @@ export default function ArticleInfo(props) {
 
   return (
     <section className='mt-2 text-gray-600 dark:text-gray-400 leading-8'>
-      <h2 className='blog-item-title mb-5 font-bold text-black text-xl md:text-2xl no-underline'>
+      <h2 className='blog-item-title mb-5 font-bold text-black text-xl md:text-5xl no-underline'>
         {siteConfig('POST_TITLE_ICON') && <NotionIcon icon={post?.pageIcon} />}
         {post?.title}
       </h2>
@@ -31,6 +31,14 @@ export default function ArticleInfo(props) {
                 <SmartLink
                   className='p-1 hover:text-red-400 transition-all duration-200'
                   href={`/archive#${formatDateFmt(post?.publishDate, 'yyyy-MM')}`}>
+                  {post.date?.start_date || post.createdTime}
+                </SmartLink>
+              </span>
+              <span className='text-sm'>
+                更新于
+                <SmartLink
+                  className='p-1 hover:text-red-400 transition-all duration-200'
+                  href={`/archive#${post?.lastEditedDay || ''}`}>
                   {post.date?.start_date || post.createdTime}
                 </SmartLink>
               </span>

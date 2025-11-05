@@ -1,9 +1,9 @@
-import { AdSlot } from '@/components/GoogleAdsense'
-import replaceSearchResult from '@/components/Mark'
-import NotionPage from '@/components/NotionPage'
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import { isBrowser } from '@/lib/utils'
+import { AdSlot } from '@/components/GoogleAdsense'
+import replaceSearchResult from '@/components/Mark'
+import NotionPage from '@/components/NotionPage'
 import { Transition } from '@headlessui/react'
 import dynamic from 'next/dynamic'
 import SmartLink from '@/components/SmartLink'
@@ -91,10 +91,10 @@ const LayoutBase = props => {
           className={
             (JSON.parse(siteConfig('LAYOUT_SIDEBAR_REVERSE'))
               ? 'flex-row-reverse'
-              : '') + ' w-full flex-1 flex items-start max-w-9/10 mx-auto pt-12'
+              : '') + ' w-full flex-1 flex items-start max-w-9/10 mx-auto'
           }>
-          <div id='container-inner ' className='w-full flex-grow min-h-fit'>
-            <Transition
+          <div id='container-inner' className='w-full flex-grow min-h-fit'>
+            {/* <Transition
               show={!onLoading}
               appear={true}
               enter='transition ease-in-out duration-700 transform order-first'
@@ -104,11 +104,10 @@ const LayoutBase = props => {
               leaveFrom='opacity-100 translate-y-0'
               leaveTo='opacity-0 -translate-y-16'
               unmount={false}>
-              {slotTop}
-
-              {children}
-            </Transition>
-            <AdSlot type='native' />
+              <div>{children}</div>
+            </Transition>*/}
+            <div>{children}</div>
+            {/* <AdSlot type='native' />*/}
           </div>
 
           {fullWidth ? null : (
@@ -225,7 +224,8 @@ const LayoutSlug = props => {
       {lock && <ArticleLock validPassword={validPassword} />}
 
       {!lock && post && (
-        <div className={`px-2  ${fullWidth ? '' : 'xl:max-w-4xl 2xl:max-w-6xl'}`}>
+        <div
+          className={`px-2  ${fullWidth ? '' : 'xl:max-w-4xl 2xl:max-w-6xl'}`}>
           {/* 文章信息 */}
           <ArticleInfo post={post} />
 
@@ -271,19 +271,18 @@ const Layout404 = props => {
   useEffect(() => {
     // 404
     if (!post) {
-      setTimeout(
-        () => {
-          if (isBrowser) {
-            const article = document.querySelector('#article-wrapper #notion-article')
-            if (!article) {
-              router.push('/404').then(() => {
-                console.warn('找不到页面', router.asPath)
-              })
-            }
+      setTimeout(() => {
+        if (isBrowser) {
+          const article = document.querySelector(
+            '#article-wrapper #notion-article'
+          )
+          if (!article) {
+            router.push('/404').then(() => {
+              console.warn('找不到页面', router.asPath)
+            })
           }
-        },
-        waiting404
-      )
+        }
+      }, waiting404)
     }
   }, [post])
   return <>404 Not found.</>

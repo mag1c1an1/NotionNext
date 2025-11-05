@@ -11,7 +11,11 @@ import CONFIG from '../config'
 export const BlogItem = props => {
   const { post } = props
   const { NOTION_CONFIG } = useGlobal()
-  const showPageCover = siteConfig('TYPOGRAPHY_POST_COVER_ENABLE', false, CONFIG)
+  const showPageCover = siteConfig(
+    'TYPOGRAPHY_POST_COVER_ENABLE',
+    false,
+    CONFIG
+  )
   const showPreview =
     siteConfig('POST_LIST_PREVIEW', false, NOTION_CONFIG) && post.blockMap
   return (
@@ -58,6 +62,17 @@ export const BlogItem = props => {
               </span>
             </div>
 
+            <div className='space-x-2'>
+              <span className='text-sm'>
+                更新于
+                <SmartLink
+                  className='p-1 hover:text-red-400 transition-all duration-200'
+                  href={`/archive#${formatDateFmt(Date.parse(post?.lastEditedDate), 'yyyy-MM')}`}>
+                  {post.lastEditedDay || ''}
+                </SmartLink>
+              </span>
+            </div>
+
             <div className='text-sm'>
               {/* {post.category && (
                 <SmartLink href={`/category/${post.category}`} className='p-1'>
@@ -82,11 +97,7 @@ export const BlogItem = props => {
           </header>
 
           <main className='text-[var(--primary-color)] dark:text-gray-300 line-clamp-4 overflow-hidden text-ellipsis relative leading-[1.7]'>
-            {!showPreview && (
-              <>
-                {post.summary}
-              </>
-            )}
+            {!showPreview && <>{post.summary}</>}
             {showPreview && post?.blockMap && (
               <div className='line-clamp-4 overflow-hidden'>
                 <NotionPage post={post} />

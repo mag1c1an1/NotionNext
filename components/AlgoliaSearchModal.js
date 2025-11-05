@@ -293,7 +293,7 @@ export default function AlgoliaSearchModal({ cRef }) {
               key={result.objectID}
               onMouseEnter={() => setActiveIndex(index)}
               onClick={() => onJumpSearchResult(index)}
-              className={`cursor-pointer replace my-2 p-2 duration-100 
+              className={`cursor-pointer replace my-2 p-2 duration-100
               rounded-lg
               ${activeIndex === index ? 'bg-blue-600 dark:bg-yellow-600' : ''}`}>
               <a

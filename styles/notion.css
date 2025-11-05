@@ -68,7 +68,7 @@
 }
 
 .notion {
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.5;
   color: var(--fg-color);
   caret-color: var(--fg-color);
@@ -600,8 +600,9 @@ summary > .notion-h {
 }
 
 .notion-page-icon {
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji,
-    'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', EmojiSymbols;
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji, 'Noto Color Emoji',
+    'Segoe UI Symbol', 'Android Emoji', EmojiSymbols;
   font-size: 1.1em;
   margin: 2px 4px 0 2px;
   fill: var(--fg-color-6);
@@ -642,8 +643,8 @@ svg.notion-page-icon {
   background: var(--bg-color-2);
   border-radius: 3px;
   font-size: 85%;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace;
+  font-family:
+    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 .notion-inline-underscore {
@@ -770,8 +771,8 @@ code[class*='language-'] {
   display: block;
   box-sizing: border-box;
   overflow: auto;
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace;
+  font-family:
+    SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   @apply w-full mb-0 dark:bg-black !important;
 }
 
@@ -958,7 +959,7 @@ code[class*='language-'] {
   overflow: hidden;
 }
 
-.notion-callout-text .notion-text{
+.notion-callout-text .notion-text {
   padding: 0px 0px !important;
   margin: 0px 0px !important;
   line-height: normal !important;
@@ -2027,7 +2028,7 @@ code.language-mermaid {
   display: none;
 }
 
-.mermaid .invisible{
+.mermaid .invisible {
   visibility: inherit;
 }
 
@@ -2074,7 +2075,7 @@ code.language-mermaid {
 } */
 
 .notion-simple-table td {
-  border: 1px solid var(#eee) !important;
+  border: 1px solid #eee !important;
 }
 
 /* 视频尺寸bug */
@@ -2086,4 +2087,11 @@ figure.notion-asset-wrapper.notion-asset-wrapper-video > div {
 /* 画廊左右边线不展示Bug */
 .notion-gallery {
   padding: 0 16px;
+}
+
+#notion-article .notion-page {
+  width: 100% !important;
+  max-width: none !important; /* 同时移除可能存在的最大宽度限制 */
+  padding-left: 0 !important; /* 可选：同时移除左右内边距 */
+  padding-right: 0 !important; /* 可选：同时移除左右内边距 */
 }

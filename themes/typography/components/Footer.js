@@ -1,4 +1,5 @@
 import { BeiAnGongAn } from '@/components/BeiAnGongAn'
+import BeiAnSite from '@/components/BeiAnSite'
 import DarkModeButton from '@/components/DarkModeButton'
 import { siteConfig } from '@/lib/config'
 
@@ -22,7 +23,24 @@ export default function Footer(props) {
         <div>
           &copy;{`${copyrightDate}`} {siteConfig('AUTHOR')}.
         </div>
-        <div>All rights reserved.</div>
+        <div>保留所有权利.</div>
+        <p>
+          <a
+            href='https://creativecommons.org/licenses/by-nc/4.0/'
+            target='_blank'>
+            CC-BY-NC 4.0
+          </a>
+        </p>
+        <a
+          rel='license'
+          href='https://creativecommons.org/licenses/by-nc/4.0/'
+          target='_blank'>
+          <img
+            alt='知识共享许可'
+            src='https://i.creativecommons.org/l/by-nc/4.0/88x31.png'
+          />
+        </a>
+        <BeiAnSite></BeiAnSite>
       </div>
     </footer>
   )
